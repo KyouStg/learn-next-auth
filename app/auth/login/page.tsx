@@ -8,11 +8,14 @@ import Link from "next/link";
 
 
 export default function Home() {
-  const {form, onSubmit} = useLoginForm()
+  const {form, onSubmit, error} = useLoginForm()
 
   return (
     <div className="mx-auto max-w-sm my-14">
       <h2 className="text-center font-medium text-2xl mb-4">ログイン</h2>
+      <p className="text-red-500">
+        {error}
+      </p>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <InputFiled
           label={"メールアドレス"}
